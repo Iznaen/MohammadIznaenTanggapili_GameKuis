@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/roguenine/UnityProjects/test project/Assembly-CSharp.csproj",
+      "projectUniqueName": "/home/roguenine/UnityProjects/MohammadIznaenTanggapili_GameKuis/Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "/home/roguenine/UnityProjects/test project/Assembly-CSharp.csproj",
+      "projectPath": "/home/roguenine/UnityProjects/MohammadIznaenTanggapili_GameKuis/Assembly-CSharp.csproj",
       "packagesPath": "/home/roguenine/.nuget/packages/",
-      "outputPath": "/home/roguenine/UnityProjects/test project/obj/",
+      "outputPath": "/home/roguenine/UnityProjects/MohammadIznaenTanggapili_GameKuis/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/roguenine/.nuget/NuGet/NuGet.Config"
@@ -53,7 +53,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.121/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.122/RuntimeIdentifierGraph.json"
       }
     }
   }
