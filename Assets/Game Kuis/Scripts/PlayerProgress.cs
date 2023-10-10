@@ -20,21 +20,36 @@ public class PlayerProgress : ScriptableObject
     [SerializeField]
     private string _filename = "save file.txt";
 
+    [SerializeField]
+    private string _startingLevelPackName = string.Empty;
+
     public MainData progresData = new MainData();
 
     public void SimpanProgres()
     {
         // sampel data
-        progresData.koin = 0;
+        // progresData.koin = 0;
+        // if (progresData.progresLevel == null)
+        // {
+        //     progresData.progresLevel = new();
+        //     progresData.progresLevel.Add("Level Pack 1", 3);
+        //     progresData.progresLevel.Add("Level Pack 3", 5);
+        // }
+
+        // simpan data awal saat objek dictionary tidak ada saat dimuat
         if (progresData.progresLevel == null)
         {
             progresData.progresLevel = new();
-            progresData.progresLevel.Add("Level Pack 1", 3);
-            progresData.progresLevel.Add("Level Pack 3", 5);
+            progresData.koin = 0;
+            progresData.progresLevel.Add(_startingLevelPackName, 1);
         }
 
         // informasi penyimpanan data
+#if UNITY_EDITOR
         var directory = Application.dataPath + "/Temporary";
+#elif (UNITY_ANDROID) && !UNITY_EDITOR
+        string directory = Application.persistentDataPath + "/ProgresLokal/";
+#endif
         var path = directory + "/" + _filename;
 
         // membuat directory temporary

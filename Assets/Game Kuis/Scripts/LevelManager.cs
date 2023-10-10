@@ -27,10 +27,10 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        if (!_playerProgress.MuatProgres())
-        {
-            _playerProgress.SimpanProgres();
-        }
+        // if (!_playerProgress.MuatProgres())
+        // {
+        //     _playerProgress.SimpanProgres();
+        // }
 
         _soalSoal = _inisialData.levelPack;
         _indexSoal = _inisialData.levelIndex - 1;

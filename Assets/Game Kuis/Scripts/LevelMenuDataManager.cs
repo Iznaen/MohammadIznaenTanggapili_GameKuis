@@ -11,6 +11,11 @@ public class LevelMenuDataManager : MonoBehaviour
 
     void Start()
     {
+        if (!_playerProgress.MuatProgres())
+        {
+            _playerProgress.SimpanProgres();
+        }
+
         _tempatKoin.text = $"{_playerProgress.progresData.koin}";
     }
 }
