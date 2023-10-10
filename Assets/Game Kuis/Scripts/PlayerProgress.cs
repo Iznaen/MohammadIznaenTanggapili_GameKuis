@@ -25,7 +25,7 @@ public class PlayerProgress : ScriptableObject
     public void SimpanProgres()
     {
         // sampel data
-        progresData.koin = 250;
+        progresData.koin = 0;
         if (progresData.progresLevel == null)
         {
             progresData.progresLevel = new();
