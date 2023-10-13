@@ -14,16 +14,16 @@ public class UI_LevelPackList : MonoBehaviour
     [SerializeField]
     private RectTransform _content = null;
 
-    [SerializeField]
-    private LevelPackKuis[] _levelPacks = new LevelPackKuis[0];
+    // [SerializeField]
+    // private LevelPackKuis[] _levelPacks = new LevelPackKuis[0];
 
     private void Start()
     {
-        LoadLevelPack();
+        // LoadLevelPack();
 
         if (_inisialData.SaatKalah)
         {
-            OpsiLevelPack_EventSaatKlik(_inisialData.levelPack);
+            OpsiLevelPack_EventSaatKlik(_inisialData.levelPack, false);
         }
 
         // subscribe event
@@ -36,8 +36,13 @@ public class UI_LevelPackList : MonoBehaviour
         OpsiLevelPack.EventSaatKlik -= OpsiLevelPack_EventSaatKlik;
     }
 
-    private void OpsiLevelPack_EventSaatKlik(LevelPackKuis levelPack)
+    private void OpsiLevelPack_EventSaatKlik(LevelPackKuis levelPack, bool terkunci)
     {
+        if (terkunci)
+        {
+            return;
+        }
+
         // buka menu levels
         _levelLists.gameObject.SetActive(true);
         _levelLists.UnloadLevelPack(levelPack);
@@ -50,9 +55,9 @@ public class UI_LevelPackList : MonoBehaviour
         // _levelLists.UnloadLevelPack(levelPack);
     }
 
-    private void LoadLevelPack()
+    public void LoadLevelPack(LevelPackKuis[] levelPacks, PlayerProgress.MainData playerData)
     {
-        foreach(var lp in _levelPacks)
+        foreach(var lp in levelPacks)
         {
             // membuat salinan object dari prefab tombol level pack
             var t = Instantiate(_tombolLevelPack);
@@ -62,6 +67,13 @@ public class UI_LevelPackList : MonoBehaviour
             // masukkan object tombol sebagai anak dari object "content"
             t.transform.SetParent(_content);
             t.transform.localScale = Vector3.one;
+
+            // cek jika level pack ada di 'dictionary' player
+            if (!playerData.progresLevel.ContainsKey(lp.name))
+            {
+                // jika tidak terdaftar maka kunci level
+                t.KunciLevelPack();
+            }
         }
     }
 }
